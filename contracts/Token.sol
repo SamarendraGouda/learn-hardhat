@@ -4,7 +4,7 @@ pragma solidity >=0.5.0 <0.9.0;
 contract Token {
     string public name = "Hardhat Test Token";
     string public symbol = "HTT";
-    uint totalSupply = 1000;
+    uint public totalSupply = 1000;
 
     address public owner;
 
@@ -16,7 +16,7 @@ contract Token {
     }
 
     function transfer(address to, uint amount) external{
-        require(balances[msg.sender] >= amount, "Not Enough Tokens");
+        require(balances[msg.sender] >= amount, "Not enough tokens");
         balances[msg.sender] -= amount;
         balances[to] += amount;
 
